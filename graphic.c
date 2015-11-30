@@ -223,7 +223,14 @@ void* Render_Loop()
 			pthread_mutex_unlock(&volumeMutex);
 			
 			/* Clear the screen before drawing anything */
-			DFBCHECK(primary->SetColor(primary, 0x00, 0x00, 0x00, 0x00));
+			if (graphicLocal.infoBannerValue.videoPID == 0)
+			{
+				DFBCHECK(primary->SetColor(primary, 0x00, 0x00, 0x00, 0xff));
+			}
+			else
+			{
+				DFBCHECK(primary->SetColor(primary, 0x00, 0x00, 0x00, 0x00));
+			}
 			DFBCHECK(primary->FillRectangle(primary, 0, 0, screenWidth, screenHeight));
 			
 			if (graphicLocal.infoBanner == SHOW)
