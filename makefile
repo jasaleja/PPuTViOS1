@@ -35,7 +35,7 @@ CXXFLAGS = $(CFLAGS)
 all: parser_playback_sample
 
 SRCS =  ./tv_app.c
-SRCS += ./remote.c
+SRCS += ./graphic.c
 
 parser_playback_sample:
 	$(CC) -o tv_app $(INCS) $(SRCS) $(CFLAGS) $(LIBS)
