@@ -1,5 +1,24 @@
 #include "remote.h"
 
+/***********************************************************************
+* @brief    Reads the events on the remote and call callback function
+*
+***********************************************************************/
+static void* Read_Input_Events();
+
+/***********************************************************************
+* @brief    Gets the keys that were pressed
+* 
+* @param	[in] count - maximum number of events to read
+* @param	[out] buf - array where the events will be
+* @param	[out] eventsRead - number of read events
+* 
+* @return   EXIT_SUCCESS - no error
+* @return   EXIT_FAILURE - error
+*
+***********************************************************************/
+static int32_t Get_Keys(int32_t count, uint8_t* buf, int32_t* eventsRead);
+
 Remote_Events_Callback RemoteEventsCallback = NULL;
 
 static int32_t inputFileDesc;

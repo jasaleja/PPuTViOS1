@@ -10,15 +10,15 @@
 #include <pthread.h>
 
 /* Helper macro for error checking */
-#define DFBCHECK(x...)                                      \
-{                                                           \
-DFBResult err = x;                                          \
-                                                            \
-if (err != DFB_OK)                                          \
-  {                                                         \
-    fprintf( stderr, "%s <%d>:\n\t", __FILE__, __LINE__ );  \
-    DirectFBErrorFatal( #x, err );                          \
-  }                                                         \
+#define DFBCHECK(x...)										\
+{															\
+DFBResult err = x;											\
+															\
+if (err != DFB_OK)											\
+  {															\
+    fprintf( stderr, "%s <%d>:\n\t", __FILE__, __LINE__ );	\
+    DirectFBErrorFatal( #x, err );							\
+  }															\
 }
 
 #define SHOW 1

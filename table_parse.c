@@ -1,5 +1,20 @@
 #include "table_parse.h"
 
+/***********************************************************************
+* @brief    Takes two 8 bit numbers from buffer and makes combines them
+* 			into 16 bit
+* 
+* @param    [in] buffer - pointer to array with PMT table
+* @param    [in] firstIndex - index of more significant 8 bit
+* @param    [in] secondIndex - index of more significant 8 bit
+* @param    [in] mask - default is 0xFFFF for 16 bit numbers, for less 
+* 						then 16 bit use adequate mask
+*
+* @return   number - 16 bit number
+*
+***********************************************************************/
+static uint16_t Make_16bit_Number(uint8_t* buffer, uint16_t firstIndex, uint16_t secondIndex, uint16_t mask);
+
 uint32_t PAT_Parse(uint8_t* buffer, PATTable* programTable)
 {
 	uint16_t sectionLength = 0;
@@ -131,7 +146,6 @@ int32_t PMT_Parse(uint8_t* buffer, PMTTable* returnValues)
 				returnValues->teletext = 1;
 			}
 		}
-		
 		
 		offset += (5 + esInfoLength);
 		sectionLength -= (5 + esInfoLength);

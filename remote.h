@@ -56,23 +56,4 @@ int32_t Remote_Register_Events_Callback(Remote_Events_Callback remoteEventsCallb
 ***********************************************************************/
 int32_t Remote_Unregister_Events_Callback(Remote_Events_Callback remoteEventsCallback);
 
-/***********************************************************************
-* @brief    Reads the events on the remote and call callback function
-*
-***********************************************************************/
-void* Read_Input_Events();
-
-/***********************************************************************
-* @brief    Gets the keys that were pressed
-* 
-* @param	[in] count - maximum number of events to read
-* @param	[out] buf - array where the events will be
-* @param	[out] eventsRead - number of read events
-* 
-* @return   EXIT_SUCCESS - no error
-* @return   EXIT_FAILURE - error
-*
-***********************************************************************/
-int32_t Get_Keys(int32_t count, uint8_t* buf, int32_t* eventsRead);
-
 #endif
